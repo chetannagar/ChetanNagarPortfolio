@@ -1,0 +1,43 @@
+---
+import Nav from "./Nav.astro";
+import cvLight from "/public/icons/cv-light.svg";
+import cvDark from "/public/icons/cv-dark.svg";
+---
+
+<header class="flex justify-between items-center py-4 px-0 bg-light-cream dark:bg-black">
+    <div class="flex flex-row gap-4 mx-4 px-4">
+        <button class="font-poppins font-semibold text-2xl text-black dark:text-light-cream cursor-pointer">Download CV</button>
+        <div class="max-w-8 aspect-square" data-cv-div aria-label="">
+            <img data-cv-light-img class="hidden max-w-full aspect-square" src={cvLight.src} alt="cv-light-logo">
+            <img data-cv-dark-img class="hidden max-w-full aspect-square" src={cvDark.src} alt="cv-dark-logo">
+        </div>
+    </div>
+    <Nav />
+</header>
+
+<style>
+    button:hover {
+        background-color: var(--primary-dark);
+    }
+    button:focus {
+        outline: none;
+    }
+    button:active {
+        transform: scale(0.95);
+    }
+    @media (max-width: 768px) {
+        button {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    import { RootElement, initializeThemeObserver } from "../util/themeUtils.js";
+    document.addEventListener('DOMContentLoaded', () => {
+        const cvLightImg = document.querySelector("[data-cv-light-img]");
+        const cvDarkImg = document.querySelector("[data-cv-dark-img]");
+
+        initializeThemeObserver(RootElement.html, cvLightImg, cvDarkImg);
+    })
+</script>

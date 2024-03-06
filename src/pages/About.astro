@@ -1,0 +1,72 @@
+---
+import AboutIcon from "/public/icons/about.svg";
+import CircleIcon from "/public/icons/circle.svg";
+---
+
+<section class="flex flex-col justify-center items-center overflow-hidden bg-light-cream dark:bg-black">
+    <div class="wrapper flex flex-col items-center justify-center px-16 my-8 gap-8">
+        <aside class="relative z-10">
+            <img class="absolute z-20 min-w-16 -bottom-12 rotate-12 -right-3 blur-2xl" src={AboutIcon.src} alt="i-icon">
+            <h3 class="relative z-40 font-anton uppercase text-5xl text-black dark:text-light-cream lg:text-[16rem]">
+                About
+                <br>
+                Me :)
+            </h3>
+        </aside>
+        <div class="relative z-30 font-poppins gap-4 font-semibold text-justify text-black dark:text-light-cream">
+            <img class="absolute z-20 min-w-16 blur-3xl -right-80 opacity-45" src={CircleIcon.src} alt="circle-icon">
+            <p class="my-3 text-base">
+                Hi! I'm <span class="special-keywords">Chetan Nagar</span>, a passionate Software Developer crafting efficient solutions
+                in the ever-evolving tech landscape. Armed with a Bachelor's degree in Computer Science and experience as a
+                Junior <span class="special-keywords">.NET Developer</span>, I thrive on translating complex challenges into streamlined, user-centric
+                applications. My journey includes honing skills in <span class="special-keywords">ASP.NET</span>, <span class="special-keywords">T-SQL</span>,
+                and <span class="special-keywords">full-stack Web development</span>.
+            </p>
+            <p class="my-3 text-base">
+                Beyond coding, I excel in fostering collaborative environments, bridging communication gaps, and solving
+                intricate problems. I'm committed to staying ahead of the curve, bringing innovation and a proactive
+                mindset to every dynamic project.
+            </p>
+            <p class="my-3 text-base">
+                Whether it's diving into code, exploring the latest tech trends, or capturing moments through photography, I
+                embrace each challenge with enthusiasm. Let's connect and explore the possibilities in the world of
+                technology together!
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .special-keywords {
+        text-decoration-line: underline;
+        text-decoration-thickness: 2px;
+        text-decoration-color: #ea580c;
+    }
+
+        .special-keywords:focus,
+        .special-keywords:hover {
+            text-decoration-color: #6366f1;
+        }
+
+    .wrapper {
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem 0;
+    }
+
+    @media (min-width: 1024px) {
+        .wrapper {
+            display: grid;
+            grid-template-columns: 50% 1fr;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .wrapper {
+            flex-direction: row;
+        }
+    }
+</style>

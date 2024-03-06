@@ -1,0 +1,22 @@
+---
+import Card from "../components/Card.astro";
+import dflogo from "/public/images/doubtfire.png";
+import weatherlogo from "/public/images/weather.png";
+import ecomlogo from "/public/images/ecom.png";
+
+const descriptions = {
+    "DoubtFire Deployment": "DoubtFire is a platform for students to ask questions and get answers from their peers. I was responsible for deploying the application to a production environment.",
+    "Weather App": "A simple weather app that uses the OpenWeatherMap API to display the current weather for a given location.",
+    "Ecommerce Auction App": "An ecommerce auction app that allows users to bid on items and sell their own items. I was responsible for the backend development and database design."
+}
+---
+
+<section class="relative z-10 flex flex-row justify-center items-center py-8 bg-light-cream dark:bg-black">
+    <h1 class="absolute z-20 tracking-[6rem] pl-24 font-anton uppercase text-black dark:text-light-cream lg:text-[16rem]">Projects</h1>
+    <div class="relative z-40 grid grid-cols-3 gap-24">
+
+        <Card image={dflogo.src} heading="DoubtFire Deployment" description={descriptions["DoubtFire Deployment"]} tags={["Angular", "Ruby on Rails", "Docker"]} />
+        <Card image={weatherlogo.src} heading="Weather App" description={descriptions["Weather App"]} tags={["TypeScript", "TailwindCSS", "Docker"]} />
+        <Card image={ecomlogo.src} heading="Ecommerce Auction App" description={descriptions["Ecommerce Auction App"]} tags={["ASP.NET", "MVC", "MS-SQL"]} />
+    </div>
+</section>

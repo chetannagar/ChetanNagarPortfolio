@@ -1,0 +1,44 @@
+---
+interface Props {
+    image: string;
+    heading: string;
+    description: string;
+    tags: string[];
+}
+
+const { image, heading, description, tags } = Astro.props;
+---
+
+<div class="card relative font-poppins flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-black bg-clip-border text-white shadow-md dark:bg-light-cream dark:text-gray-700">
+    <div class="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
+        <img src={image} alt="ui/ux review check" />
+    </div>
+    <div class="p-6">
+        <h4 class="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal">
+            {heading}
+        </h4>
+        <p class="block mt-3 font-sans text-xl antialiased font-normal leading-relaxed">
+            {description}
+        </p>
+    </div>
+    <div class="px-4 pb-4">
+        {tags.map((tag: string) => (
+            <span class="inline-block bg-light-cream text-black rounded-full px-2 py-1 text-sm mr-2 dark:bg-black dark:text-light-cream hover:text-orange-700">#{tag}</span>
+            )
+        )}
+    </div>
+</div>
+
+<style>
+    .card {
+        opacity: .2;
+        transition: opacity .5s ease-out;
+        -moz-transition: opacity .5s ease-out;
+        -webkit-transition: opacity .5s ease-out;
+        -o-transition: opacity .5s ease-out;
+    }
+
+    .card:hover {
+        opacity: 1;
+    }
+</style>

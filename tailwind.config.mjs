@@ -5,6 +5,7 @@ export default {
 		extend: {
 			colors: {
 				'light-cream': '#ffffe3',
+				'light-orange': '#ea580c',
 			},
 		},
 		fontFamily: {

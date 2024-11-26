@@ -14,7 +14,7 @@ export function toggleIcons(lightIcon, darkIcon, theme) {
 export function initializeThemeObserver(html, lightIcon, darkIcon) {
     // Function to toggle images based on the theme
     function toggleIconsCallback(mutationsList) {
-        for (const mutation of mutationsList) {
+        for (let mutation of mutationsList) {
             if (mutation.type === 'attributes' && mutation.attributeName === 'data-mode') {
                 // Toggle images when data-mode changes
                 toggleIcons(lightIcon, darkIcon, mutation.target.getAttribute('data-mode'));

@@ -1,5 +1,6 @@
 ---
 import Card from "../components/Card.astro";
+import Scroller from "../components/Scroller.astro";
 import dflogo from "/public/images/doubtfire.png";
 import weatherlogo from "/public/images/weather.png";
 import ecomlogo from "/public/images/ecom.png";
@@ -11,12 +12,16 @@ const descriptions = {
 }
 ---
 
-<section class="relative z-10 flex flex-row justify-center items-center py-8 bg-light-cream dark:bg-black">
-    <h1 class="absolute z-20 tracking-[6rem] pl-24 font-anton uppercase text-black dark:text-light-cream lg:text-[16rem]">Projects</h1>
-    <div class="relative z-40 grid grid-cols-3 gap-24">
-
-        <Card image={dflogo.src} heading="DoubtFire Deployment" description={descriptions["DoubtFire Deployment"]} tags={["Angular", "Ruby on Rails", "Docker"]} />
-        <Card image={weatherlogo.src} heading="Weather App" description={descriptions["Weather App"]} tags={["TypeScript", "TailwindCSS", "Docker"]} />
-        <Card image={ecomlogo.src} heading="Ecommerce Auction App" description={descriptions["Ecommerce Auction App"]} tags={["ASP.NET", "MVC", "MS-SQL"]} />
+<section class="py-8 bg-black gap-12 dark:bg-light-cream">
+    <div class="py-8 my-8">
+        <Scroller />
+    </div>
+    <div class="relative z-10 my-8 py-8 flex flex-row justify-center items-center">
+        <h1 class="absolute z-20 tracking-[6rem] pl-24 font-anton uppercase text-light-cream dark:text-black lg:text-[16rem]">Projects</h1>
+        <div class="relative z-40 grid grid-cols-3 gap-24">
+            <Card image={dflogo.src} heading="DoubtFire Deployment" description={descriptions["DoubtFire Deployment"]} tags={["Angular", "Ruby on Rails", "Docker"]} />
+            <Card image={weatherlogo.src} heading="Weather App" description={descriptions["Weather App"]} tags={["TypeScript", "TailwindCSS", "Docker"]} />
+            <Card image={ecomlogo.src} heading="Ecommerce Auction App" description={descriptions["Ecommerce Auction App"]} tags={["ASP.NET", "MVC", "MS-SQL"]} />
+        </div>
     </div>
 </section>

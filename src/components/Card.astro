@@ -9,7 +9,7 @@ interface Props {
 const { image, heading, description, tags } = Astro.props;
 ---
 
-<div class="card relative font-poppins flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-black bg-clip-border text-white shadow-md dark:bg-light-cream dark:text-gray-700">
+<div class="card relative font-poppins flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-clip-border shadow-md bg-light-orange dark:text-light-cream">
     <div class="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
         <img src={image} alt="ui/ux review check" />
     </div>
@@ -23,7 +23,7 @@ const { image, heading, description, tags } = Astro.props;
     </div>
     <div class="px-4 pb-4">
         {tags.map((tag: string) => (
-            <span class="inline-block bg-light-cream text-black rounded-full px-2 py-1 text-sm mr-2 dark:bg-black dark:text-light-cream hover:text-orange-700">#{tag}</span>
+            <span class="inline-block bg-black text-light-cream rounded-full px-2 py-1 text-sm mr-2 dark:bg-light-cream dark:text-black hover:text-orange-700">#{tag}</span>
             )
         )}
     </div>

@@ -1,0 +1,95 @@
+---
+import reactLogo from '/public/icons/scroller/react.svg'
+import dotNetLogo from '/public/icons/scroller/dotnet.svg'
+import csLogo from '/public/icons/scroller/cs.svg'
+import dockerLogo from '/public/icons/scroller/docker.svg'
+import jsLogo from '/public/icons/scroller/js.svg'
+import tsLogo from '/public/icons/scroller/ts.svg'
+import pythonLogo from '/public/icons/scroller/python.svg'
+import htmlLogo from '/public/icons/scroller/html.svg'
+import cssLogo from '/public/icons/scroller/css.svg'
+import gitLogo from '/public/icons/scroller/git.svg'
+import azureLogo from '/public/icons/scroller/azure.svg'
+import mssqlLogo from '/public/icons/scroller/mssql.svg'
+import javaLogo from '/public/icons/scroller/java.svg'
+---
+
+<div class="flex flex-col w-full justify-center items-center gap-12">
+    <h1 class="font-anton text-7xl text-light-cream dark:text-black">Technologies</h1>
+    <div class="scroller z-0">
+        <ul class="inner-scroller flex flex-wrap justify-center items-center pt-4 pb-4 gap-4 list-none m-0 ps-0 pe-0">
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={reactLogo.src} alt="React Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={dotNetLogo.src} alt="Dotnet Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={csLogo.src} alt="Cs Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={dockerLogo.src} alt="Docker Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={jsLogo.src} alt="Js Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={tsLogo.src} alt="Ts Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={pythonLogo.src} alt="Python Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={htmlLogo.src} alt="Html Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={cssLogo.src} alt="CSS Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={azureLogo.src} alt="Azure Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={javaLogo.src} alt="Java Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={mssqlLogo.src} alt="MsSql Logo" class="w-full aspect-square" /></li>
+            <li class="w-40 aspect-square mx-4 p-4 rounded-lg"><img src={gitLogo.src} alt="Git Logo" class="w-full aspect-square" /></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const scrollers = document.querySelectorAll(".scroller");
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        addAnimation();
+    }
+
+    function addAnimation() {
+        scrollers.forEach(scroller => {
+            if(!scroller.getAttribute('data-animated')) {
+            scroller.setAttribute('data-animated', true);
+
+            const scrollerInner = scroller.querySelector('.inner-scroller');
+            const scrollerContent = Array.from(scrollerInner.children);
+
+            if(scrollerInner.childElementCount <= scrollerContent.length) {
+                scrollerContent.forEach(item => {
+                const duplicatedItem = item.cloneNode(true);
+                duplicatedItem.setAttribute("aria-hidden", true);
+                scrollerInner.appendChild(duplicatedItem);
+                })
+            }
+            }
+        });
+    }
+</script>
+
+<style>
+    .inner-scroller {
+        padding-block: 1rem;
+    }
+
+    .scroller {
+        max-width: 90%;
+    }
+
+        .scroller[data-animated="true"] {
+            overflow: hidden;
+            -webkit-mask: linear-gradient(90deg, transparent, #FFFFFF 20%, #FFFFFF 80%, transparent);
+            mask: linear-gradient(90deg, transparent, #FFFFFF 20%, #FFFFFF 80%, transparent);
+        }
+
+        .scroller[data-animated="true"] .inner-scroller {
+            width: fit-content;
+            flex-wrap: nowrap;
+            animation: scroll var(--_animation-duration, 20s) var(--_animation-direction, forwards) linear infinite;
+        }
+
+        .scroller[data-direction="right"] {
+            --_animation-direction: reverse;
+        }
+
+    @keyframes scroll {
+        to {
+            transform: translateX(calc(-50% - 0.5rem));
+        }
+    }
+</style>

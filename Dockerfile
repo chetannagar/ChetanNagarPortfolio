@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base
-FROM node:18-alpine
+FROM node:23-alpine
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -24,4 +24,4 @@ ENV PORT=4321
 EXPOSE 4321
 
 # Start the app
-CMD ["npm", "run", "dev"]
+CMD ["node", "./dist/server/entry.mjs"]

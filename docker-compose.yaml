@@ -3,7 +3,7 @@ services:
   astro-app:
     build: .
     ports:
-      - "3000:4321"
+      - "4321:4321"
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules

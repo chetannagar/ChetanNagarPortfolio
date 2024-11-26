@@ -43,20 +43,27 @@ import javaLogo from '/public/icons/scroller/java.svg'
     }
 
     function addAnimation() {
-        scrollers.forEach(scroller => {
-            if(!scroller.getAttribute('data-animated')) {
-            scroller.setAttribute('data-animated', true);
+        scrollers.forEach((scroller) => {
+            if (!scroller.getAttribute("data-animated")) {
+                scroller.setAttribute("data-animated", "true");
 
-            const scrollerInner = scroller.querySelector('.inner-scroller');
-            const scrollerContent = Array.from(scrollerInner.children);
+                const scrollerInner = scroller.querySelector(".inner-scroller");
 
-            if(scrollerInner.childElementCount <= scrollerContent.length) {
-                scrollerContent.forEach(item => {
-                const duplicatedItem = item.cloneNode(true);
-                duplicatedItem.setAttribute("aria-hidden", true);
-                scrollerInner.appendChild(duplicatedItem);
-                })
-            }
+                if (scrollerInner) { // Add null check here
+                    const scrollerContent = Array.from(scrollerInner.children);
+
+                    if (scrollerInner.childElementCount <= scrollerContent.length) {
+                        scrollerContent.forEach((item) => {
+                            const duplicatedItem = item.cloneNode(true);
+
+                            if (duplicatedItem instanceof HTMLElement) {
+                                duplicatedItem.setAttribute("aria-hidden", "true");
+                            }
+
+                            scrollerInner.appendChild(duplicatedItem);
+                        });
+                    }
+                }
             }
         });
     }

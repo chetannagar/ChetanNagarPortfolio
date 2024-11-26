@@ -16,6 +16,10 @@ COPY . .
 # Build the Astro app
 RUN npm run build
 
+# Set the Host and the Port
+ENV HOST=0.0.0.0
+ENV PORT=4321
+
 # Expose the port the app will run on
 EXPOSE 4321
 
